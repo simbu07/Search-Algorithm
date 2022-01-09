@@ -19,13 +19,52 @@ To write a program to perform linear search and binary search using python progr
 ## Program:
 i)	#Use a linear search method to match the item in a list.
 ```
+def linearsearch(array, n, k):
 
+    for i in range(0, n):
+        if (array [i] == k):
+            return i
+    return -1
+
+array = eval(input())
+k =  eval(input())
+n = len(array)
+array.sort()
+result = linearsearch(array, n, k)
+if(result == -1):
+    print(array)
+    print("Element not found")
+else:
+    print(array)
+    print("Element found at index: ", result)
 
 
 ```
 ii)	# Find the element in a list using Binary Search(Iterative Method).
 ```
+def binarySearchIter(array, k, low, high):
+    while low<=high:
+        mid=low+(high-low)//2
+        if array[mid]==k:
+            return mid
+        elif array[mid]<k:
+            low=mid+1
+        else:
+            high=mid-1
+    return -1
+    
+    
+array = eval(input())
+array.sort()
+k = eval(input())
 
+result = binarySearchIter(array, k, 0, len(array)-1)
+if(result == -1):
+    print(array)
+    print("Element not found")
+else:
+    print(array)
+    print("Element found at index: ", result)
 
 
 
@@ -33,14 +72,40 @@ ii)	# Find the element in a list using Binary Search(Iterative Method).
 ```
 iii)	# Find the element in a list using Binary Search (recursive Method).
 ```
+def BinarySearch(array, l, r, k):
 
+    if r >= l:
+
+        mid = l + (r - l) // 2
+
+        if array[mid] == k:
+            return mid
+        elif array[mid] > k:
+            return BinarySearch(array, l, mid-1, k)
+        else:
+            return BinarySearch(array, mid + 1, r, k)
+    else:
+        return -1
+array = eval(input())
+k = eval(input())
+array.sort()
+result = BinarySearch(array, 0, len(array)-1, k)
+
+if(result == -1):
+    print(array)
+    print("Element not found")
+else:
+    print(array)
+    print("Element found at index: ", result)
 
 
 
 
 ```
-## Sample Input and Output
-
+### Output
+![git log](b1.png)
+![git log](b2.png)
+![git log](b3.png)
 
 
 
